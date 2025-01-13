@@ -59,7 +59,7 @@ export function MainNav() {
         <div className="mr-4 md:mr-8">
           <Link href="/" className="flex items-center space-x-2">
             <Palette className="h-6 w-6" />
-            <span className="font-pacifico text-xl">Creative Soul</span>
+            <span className="font-pacifico text-xl">Ink & Soul</span>
           </Link>
         </div>
         {/* Desktop Navigation */}
