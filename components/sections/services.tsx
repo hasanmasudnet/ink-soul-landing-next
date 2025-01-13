@@ -9,9 +9,15 @@ import {
   Heart, 
   Flower2, 
   Gem,
+  Crown,
 } from "lucide-react";
 
 const services = [
+  {
+    icon: Crown,
+    title: "Bridal Makeover",
+    description: "Complete bridal transformation including makeup, hair styling, and pre-bridal skincare packages for your special day."
+  },
   {
     icon: Palette,
     title: "Custom Tattoos",

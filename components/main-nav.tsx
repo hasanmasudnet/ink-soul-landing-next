@@ -9,9 +9,8 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
-  SheetHeader,
   SheetTitle,
-  SheetClose
+  SheetClose,
 } from "@/components/ui/sheet";
 import { useEffect, useState } from "react";
 
@@ -118,83 +117,72 @@ export function MainNav() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <SheetHeader className="border-b pb-4 mb-4">
+            <SheetContent 
+              side="right" 
+              className="w-[300px] sm:w-[400px] pr-0 [&>button]:hidden"
+            >
+              <div className="flex justify-between items-center pb-4 mb-4">
                 <SheetTitle className="font-pacifico text-xl">Menu</SheetTitle>
-              </SheetHeader>
-              <SheetClose asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="absolute right-4 top-4"
-                >
-                  <X className="h-5 w-5" />
-                  <span className="sr-only">Close menu</span>
-                </Button>
-              </SheetClose>
-              <nav className="flex flex-col space-y-4">
                 <SheetClose asChild>
-                  <Link
-                    href="/about"
-                    className="text-lg font-medium transition-colors hover:text-primary"
-                    onClick={() => handleNavClick('/about')}
+                  <Button 
+                    variant="ghost" 
+                    size="icon"
+                    className="hover:bg-transparent"
                   >
-                    About
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/#services"
-                    className="text-lg font-medium transition-colors hover:text-primary"
-                    onClick={() => handleNavClick('/#services')}
-                  >
-                    Services
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/#portfolio"
-                    className="text-lg font-medium transition-colors hover:text-primary"
-                    onClick={() => handleNavClick('/#portfolio')}
-                  >
-                    Portfolio
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/#pricing"
-                    className="text-lg font-medium transition-colors hover:text-primary"
-                    onClick={() => handleNavClick('/#pricing')}
-                  >
-                    Pricing
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/#testimonials"
-                    className="text-lg font-medium transition-colors hover:text-primary"
-                    onClick={() => handleNavClick('/#testimonials')}
-                  >
-                    Testimonials
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/contact"
-                    className="text-lg font-medium transition-colors hover:text-primary"
-                    onClick={() => handleNavClick('/contact')}
-                  >
-                    Contact
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Button
-                    onClick={() => scrollToSection("booking")}
-                    className="w-full bg-[#FFD700] text-black hover:bg-[#FFD700]/90"
-                  >
-                    Book Consultation
+                    <X className="h-5 w-5" />
+                    <span className="sr-only">Close menu</span>
                   </Button>
                 </SheetClose>
+              </div>
+              <nav className="flex flex-col space-y-4">
+                <Link
+                  href="/about"
+                  className="text-lg font-medium transition-colors hover:text-primary"
+                  onClick={() => handleNavClick('/about')}
+                >
+                  About
+                </Link>
+                <Link
+                  href="/#services"
+                  className="text-lg font-medium transition-colors hover:text-primary"
+                  onClick={() => handleNavClick('/#services')}
+                >
+                  Services
+                </Link>
+                <Link
+                  href="/#portfolio"
+                  className="text-lg font-medium transition-colors hover:text-primary"
+                  onClick={() => handleNavClick('/#portfolio')}
+                >
+                  Portfolio
+                </Link>
+                <Link
+                  href="/#pricing"
+                  className="text-lg font-medium transition-colors hover:text-primary"
+                  onClick={() => handleNavClick('/#pricing')}
+                >
+                  Pricing
+                </Link>
+                <Link
+                  href="/#testimonials"
+                  className="text-lg font-medium transition-colors hover:text-primary"
+                  onClick={() => handleNavClick('/#testimonials')}
+                >
+                  Testimonials
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-lg font-medium transition-colors hover:text-primary"
+                  onClick={() => handleNavClick('/contact')}
+                >
+                  Contact
+                </Link>
+                <Button
+                  onClick={() => scrollToSection("booking")}
+                  className="w-full bg-[#FFD700] text-black hover:bg-[#FFD700]/90"
+                >
+                  Book Consultation
+                </Button>
               </nav>
             </SheetContent>
           </Sheet>

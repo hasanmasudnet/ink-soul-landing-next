@@ -6,6 +6,11 @@ import Image from "next/image";
 
 const portfolioItems = [
   {
+    title: "Bridal Makeover",
+    category: "Bridal Beauty",
+    image: "/images/portfolio/bridal-makeup.jpg",
+  },
+  {
     title: "Custom Sleeve Tattoo",
     category: "Tattoo Art",
     image: "https://images.unsplash.com/photo-1542359649-31e03cd4d909?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
@@ -19,11 +24,6 @@ const portfolioItems = [
     title: "Professional Makeup",
     category: "Beauty",
     image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-  },
-  {
-    title: "Nail Art Design",
-    category: "Nail Art",
-    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
   },
   {
     title: "Fine Line Tattoo",
@@ -50,11 +50,11 @@ export function PortfolioSection() {
           <h2 className="font-pacifico text-4xl mb-4">Our Gallery</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore our collection of stunning transformations and artistic works.
-            From intricate tattoos to beautiful hairstyles and makeup artistry.
+            From bridal makeovers to tattoos and beauty treatments.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {portfolioItems.map((item, index) => (
             <motion.div
               key={item.title}
@@ -63,7 +63,7 @@ export function PortfolioSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card className="overflow-hidden group cursor-pointer">
-                <div className="relative aspect-[4/3]">
+                <div className="relative aspect-square">
                   <Image
                     src={item.image}
                     alt={item.title}
