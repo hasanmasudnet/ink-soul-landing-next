@@ -7,34 +7,34 @@ import { Check } from "lucide-react";
 
 const packages = [
   {
-    name: "Small Tattoo",
-    price: "150+",
+    name: "Basic Package",
+    price: "199+",
     features: [
-      "Up to 3 inches",
-      "Single session",
-      "Basic design",
-      "Free touch-up",
+      "Initial Consultation",
+      "Basic Design Concept",
+      "One Revision Round",
+      "Digital Files Included",
     ],
   },
   {
-    name: "Custom Design",
-    price: "300+",
+    name: "Professional",
+    price: "499+",
     features: [
-      "Up to 6 inches",
-      "Multiple sessions",
-      "Custom artwork",
-      "Free consultation",
+      "Extended Consultation",
+      "Custom Design Work",
+      "Three Revision Rounds",
+      "Premium Support",
     ],
     featured: true,
   },
   {
-    name: "Large Piece",
-    price: "500+",
+    name: "Enterprise",
+    price: "999+",
     features: [
-      "6+ inches",
-      "Multiple sessions",
-      "Complex design",
-      "Priority booking",
+      "Full Project Management",
+      "Unlimited Revisions",
+      "Priority Support",
+      "Full Rights Transfer",
     ],
   },
 ];
@@ -49,8 +49,8 @@ export function PricingSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="font-pacifico text-4xl mb-4">Pricing & Packages</h2>
-          <p className="text-muted-foreground">Transparent pricing for your unique tattoo</p>
+          <h2 className="font-pacifico text-4xl mb-4">Investment Plans</h2>
+          <p className="text-muted-foreground">Flexible pricing for your creative needs</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">

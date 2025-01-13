@@ -4,13 +4,23 @@ import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Palette } from "lucide-react";
+import { Menu, X, Palette } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetClose
+} from "@/components/ui/sheet";
 import { useEffect, useState } from "react";
 
 export function MainNav() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -26,6 +36,17 @@ export function MainNav() {
     }
   };
 
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('/#')) {
+      const id = href.substring(2);
+      scrollToSection(id);
+    }
+  };
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <div
       className={cn(
@@ -36,13 +57,14 @@ export function MainNav() {
       )}
     >
       <div className="container flex h-16 items-center">
-        <div className="mr-8">
+        <div className="mr-4 md:mr-8">
           <Link href="/" className="flex items-center space-x-2">
             <Palette className="h-6 w-6" />
-            <span className="font-pacifico text-xl">Ink & Soul</span>
+            <span className="font-pacifico text-xl">Creative Soul</span>
           </Link>
         </div>
-        <nav className="flex items-center space-x-6 text-sm font-medium">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link
             href="/about"
             className="transition-colors hover:text-primary"
@@ -50,10 +72,16 @@ export function MainNav() {
             About
           </Link>
           <Link
-            href="/#styles"
+            href="/#services"
             className="transition-colors hover:text-primary"
           >
-            Styles
+            Services
+          </Link>
+          <Link
+            href="/#portfolio"
+            className="transition-colors hover:text-primary"
+          >
+            Portfolio
           </Link>
           <Link
             href="/#pricing"
@@ -62,7 +90,7 @@ export function MainNav() {
             Pricing
           </Link>
           <Link
-            href="/#referrals"
+            href="/#testimonials"
             className="transition-colors hover:text-primary"
           >
             Testimonials
@@ -77,10 +105,99 @@ export function MainNav() {
         <div className="ml-auto flex items-center space-x-4">
           <Button
             onClick={() => scrollToSection("booking")}
-            className="bg-[#FFD700] text-black hover:bg-[#FFD700]/90"
+            className="hidden md:inline-flex bg-[#FFD700] text-black hover:bg-[#FFD700]/90"
           >
-            Book Appointment
+            Book Consultation
           </Button>
+          
+          {/* Mobile Menu */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetHeader className="border-b pb-4 mb-4">
+                <SheetTitle className="font-pacifico text-xl">Menu</SheetTitle>
+              </SheetHeader>
+              <SheetClose asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="absolute right-4 top-4"
+                >
+                  <X className="h-5 w-5" />
+                  <span className="sr-only">Close menu</span>
+                </Button>
+              </SheetClose>
+              <nav className="flex flex-col space-y-4">
+                <SheetClose asChild>
+                  <Link
+                    href="/about"
+                    className="text-lg font-medium transition-colors hover:text-primary"
+                    onClick={() => handleNavClick('/about')}
+                  >
+                    About
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    href="/#services"
+                    className="text-lg font-medium transition-colors hover:text-primary"
+                    onClick={() => handleNavClick('/#services')}
+                  >
+                    Services
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    href="/#portfolio"
+                    className="text-lg font-medium transition-colors hover:text-primary"
+                    onClick={() => handleNavClick('/#portfolio')}
+                  >
+                    Portfolio
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    href="/#pricing"
+                    className="text-lg font-medium transition-colors hover:text-primary"
+                    onClick={() => handleNavClick('/#pricing')}
+                  >
+                    Pricing
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    href="/#testimonials"
+                    className="text-lg font-medium transition-colors hover:text-primary"
+                    onClick={() => handleNavClick('/#testimonials')}
+                  >
+                    Testimonials
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    href="/contact"
+                    className="text-lg font-medium transition-colors hover:text-primary"
+                    onClick={() => handleNavClick('/contact')}
+                  >
+                    Contact
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Button
+                    onClick={() => scrollToSection("booking")}
+                    className="w-full bg-[#FFD700] text-black hover:bg-[#FFD700]/90"
+                  >
+                    Book Consultation
+                  </Button>
+                </SheetClose>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </div>

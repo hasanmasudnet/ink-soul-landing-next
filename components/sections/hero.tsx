@@ -30,17 +30,17 @@ export function HeroSection() {
         className="container relative z-10 mx-auto px-4 text-center"
       >
         <h1 className="font-pacifico text-5xl md:text-7xl mb-6 text-white">
-          Where Art Meets Skin
+          Unleash Your Creative Vision
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
-          Experience the perfect blend of artistry and professionalism at Ink & Soul Tattoo Studio
+          Transform your ideas into reality with our expert artists, designers, and creative professionals
         </p>
         <Button
           onClick={scrollToBooking}
           size="lg"
           className="bg-[#FFD700] text-black hover:bg-[#FFD700]/90 text-lg px-8"
         >
-          Book Your Session
+          Book a Consultation
         </Button>
       </motion.div>
 
