@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Pacifico } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from 'react-hot-toast';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const pacifico = Pacifico({ 
@@ -31,8 +31,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <Toaster />
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
